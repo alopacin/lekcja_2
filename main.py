@@ -13,26 +13,37 @@
 
 from inflation import *
 # nadanie zmiennych
-wysokosc_poczatkowa_kredytu = int(input('Podaj wartość początkową kredytu: '))
+initial_loan = int(input('Podaj wartość początkową kredytu: '))
 loan_rate = int(input('Podaj oprocentowanie kredytu: '))
-kwota_raty = int(input('Podaj stałą wartość raty: '))
+installment = int(input('Podaj stałą wartość raty: '))
 
 # algorytm wyliczający kwotę pozostałą do spłaty
+
 #styczen
 interest = loan_rate + january
-amount_to_be_repaid = wysokosc_poczatkowa_kredytu - (kwota_raty + interest / 100)
-print('Twoja pozostała kwota kredytu to {:.2f}'.format(amount_to_be_repaid))
+styczen = initial_loan - (installment + (interest / 10))
+print('Twoja pozostała kwota kredytu to {:.2f}'.format(styczen))
 
 #luty
 interest = loan_rate + february
-amount_to_be_repaid -=  kwota_raty + interest / 100
-print('Twoja pozostała kwota kredytu to {:.2f}, to  mniej niż w poprzednim miesiącu'.format(amount_to_be_repaid,))
+luty = styczen - (installment + (interest / 10))
+mniej = styczen - luty
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(luty, mniej))
 
 #marzec
 interest = loan_rate + march
-amount_to_be_repaid -= kwota_raty + interest / 100
-print('Twoja pozostała kwota kredytu to {:.2f}, to  mniej niż w poprzednim miesiącu'.format(amount_to_be_repaid,))
+marzec = luty - (installment + (interest / 10))
+mniej = luty- marzec
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(marzec, mniej))
 
-TODO
-#skończyć program
+#kwiecień
+interest = loan_rate + april
+kwiecien  = marzec - (installment + (interest / 10))
+print('Twoja pozostała kwota kredytu to {:.2f}, to  mniej niż w poprzednim miesiącu'.format(kwiecien))
+
+# maj
+interest = loan_rate + may
+maj = kwiecien - (installment + (interest / 10))
+print('Twoja pozostała kwota kredytu to {:.2f}, to  mniej niż w poprzednim miesiącu'.format(maj))
+
 
