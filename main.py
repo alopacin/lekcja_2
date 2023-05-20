@@ -9,7 +9,7 @@ installment = float(input('Podaj stałą wysokość raty: '))
 # glowna czesc programu
 
 #styczen
-interest = (loan_rate - january) / 12
+interest = (loan_rate - january)
 print(interest)
 styczen = initial_loan - installment + (installment * (interest / 100))
 print('Twoja pozostała kwota kredytu to {:.2f}'.format(styczen))
