@@ -12,38 +12,73 @@
     Przykładowe wartości kredytu i formułę do jego wyliczenia znajdziesz w załączniku powyżej. Skopiuj z niego wartości inflacji dla każdego miesiąca.'''
 
 from inflation import *
-# nadanie zmiennych
-initial_loan = int(input('Podaj wartość początkową kredytu: '))
-loan_rate = int(input('Podaj oprocentowanie kredytu: '))
-installment = int(input('Podaj stałą wartość raty: '))
+# pobranie danych wejsciowych
+initial_loan = float(input('Podaj wartość początkową kredytu: '))
+loan_rate = float(input('Podaj oprocentowanie kredytu: '))
+installment = float(input('Podaj stałą wartość raty: '))
 
-# algorytm wyliczający kwotę pozostałą do spłaty
+# glowna czesc programu
 
 #styczen
-interest = loan_rate + january
-styczen = initial_loan - (installment + (interest / 10))
+interest = (loan_rate - january) / 12
+print(interest)
+styczen = initial_loan - installment * (interest / 10)
 print('Twoja pozostała kwota kredytu to {:.2f}'.format(styczen))
 
-#luty
-interest = loan_rate + february
-luty = styczen - (installment + (interest / 10))
-mniej = styczen - luty
-print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(luty, mniej))
+# luty
+interest = (loan_rate - february) / 12
+luty = styczen - (installment * (interest / 10))
+less = styczen - luty
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(luty, less))
 
-#marzec
-interest = loan_rate + march
-marzec = luty - (installment + (interest / 10))
-mniej = luty- marzec
-print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(marzec, mniej))
+# marzec
+interest = (loan_rate - march) / 12
+marzec = luty - (installment * (interest / 10))
+less = luty - marzec
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(marzec, less))
 
-#kwiecień
-interest = loan_rate + april
-kwiecien  = marzec - (installment + (interest / 10))
-print('Twoja pozostała kwota kredytu to {:.2f}, to  mniej niż w poprzednim miesiącu'.format(kwiecien))
+# kwiecień
+interest = (loan_rate - april) / 12
+kwiecien  = marzec - (installment * (interest / 10))
+less = marzec - kwiecien
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(kwiecien, less))
 
 # maj
-interest = loan_rate + may
-maj = kwiecien - (installment + (interest / 10))
-print('Twoja pozostała kwota kredytu to {:.2f}, to  mniej niż w poprzednim miesiącu'.format(maj))
+interest = (loan_rate - may) / 12
+maj = kwiecien - (installment * (interest / 10))
+less = kwiecien - maj
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(maj, less))
+
+# czerwiec
+interest = (loan_rate - june) / 12
+czerwiec = maj - (installment * (interest / 10))
+less = maj - czerwiec
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(czerwiec, less))
+
+# lipiec
+interest = (loan_rate - july) / 12
+lipiec = czerwiec - (installment * (interest / 10))
+less = czerwiec - lipiec
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(lipiec, less))
+
+#sierpien
+interest = (loan_rate - august) / 12
+sierpien = lipiec - (installment * (interest / 10))
+less = lipiec - sierpien
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(sierpien, less))
+
+#wrzesien
+interest = (loan_rate - september) / 12
+wrzesien = sierpien - (installment * (interest / 10))
+less  = sierpien - wrzesien
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(wrzesien, less))
+
+# pazdziernik
+interest = (loan_rate - november) / 12
+pazdziernik = wrzesien - (installment * (interest / 10))
+less  = wrzesien - pazdziernik
+print('Twoja pozostała kwota kredytu to {:.2f}, to {:.2f} mniej niż w poprzednim miesiącu'.format(pazdziernik, less))
+
+
 
 
